@@ -36,319 +36,396 @@ const STORAGE_KEYS = {
   CURRENT_USER: 'khmer_pos_current_user'
 };
 
-// Initial Seed Data with Cambodian Market retail products
+// Initial Seed Data with Motorcycle Accessories for ADV, PCX, SCOOPY, PG-1, CT125
 export const INITIAL_PRODUCTS: Product[] = [
   {
     productId: 'PRD-000001',
-    barcode: '884100100001',
-    name: 'Angkor Premium Beer 330ml Can',
-    khmerName: 'ស្រាបៀរ អង្គរ កំប៉ុង ៣៣០មល',
-    category: 'Beverages',
-    brand: 'Angkor Beer',
-    unit: 'Can',
-    costPrice: 0.55,
-    salePrice: 0.75,
-    wholesalePrice: 0.65,
-    vipPrice: 0.70,
-    stock: 120,
-    minStock: 24,
-    supplier: 'Cambrew Ltd',
-    description: 'National beer of Cambodia, smooth and refreshing',
-    imageUrl: 'https://images.unsplash.com/photo-1608270191910-c4464c8d5dc7?w=300&auto=format&fit=crop&q=80',
+    barcode: '885001001001',
+    name: 'YSS G-Sport Rear Shock 365mm (Black/Red Edition)',
+    khmerName: 'បូមក្រោយ YSS G-Sport 365mm (ADV 160 / 350)',
+    category: 'បូម & ជើងក្រោម',
+    brand: 'YSS Suspension',
+    motorcycleModel: 'ADV 160',
+    unit: 'Set',
+    costPrice: 185.00,
+    salePrice: 245.00,
+    wholesalePrice: 215.00,
+    vipPrice: 230.00,
+    stock: 12,
+    minStock: 3,
+    supplier: 'YSS Cambodia Racing Parts',
+    description: 'បូម YSS G-Sport Subtank កែសម្រួល Rebound & Preload សម្រាប់ Honda ADV 160/350 ជិះស្រួល ទប់លំនឹងល្អ',
+    imageUrl: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=400&auto=format&fit=crop&q=80',
     status: 'In Stock',
     createdDate: '2026-08-01'
   },
   {
     productId: 'PRD-000002',
-    barcode: '884100100002',
-    name: 'Kuleng Mineral Water 500ml',
-    khmerName: 'ទឹកបរិសុទ្ធ គូលែន ៥០០មល',
-    category: 'Beverages',
-    brand: 'Kulen Water',
-    unit: 'Bottle',
-    costPrice: 0.20,
-    salePrice: 0.40,
-    wholesalePrice: 0.30,
-    vipPrice: 0.35,
-    stock: 250,
-    minStock: 50,
-    supplier: 'Kulen Water Co.',
-    description: 'Natural mineral water from Mount Kulen',
-    imageUrl: 'https://images.unsplash.com/photo-1548839140-29a749e1bc4e?w=300&auto=format&fit=crop&q=80',
+    barcode: '885001001002',
+    name: 'Brembo 4-Piston Caliper + CNC Bracket Set',
+    khmerName: 'ដង្កៀបហ្វ្រាំង Brembo 4-Pot + ជើងចាប់ CNC (PCX / ADV)',
+    category: 'ប្រព័ន្ធហ្វ្រាំង & ឌីស',
+    brand: 'Brembo',
+    motorcycleModel: 'PCX 160',
+    unit: 'Set',
+    costPrice: 95.00,
+    salePrice: 145.00,
+    wholesalePrice: 125.00,
+    vipPrice: 135.00,
+    stock: 18,
+    minStock: 4,
+    supplier: 'Brembo Performance KH',
+    description: 'ដង្កៀបហ្វ្រាំង Brembo 4 Pistons ជួយទប់ហ្វ្រាំងស៊ីខ្លាំង សុវត្ថិភាពខ្ពស់ មកជាមួយជើងចាប់ CNC អាលុយមីញ៉ូម',
+    imageUrl: 'https://images.unsplash.com/photo-1486006920555-c77dce18193b?w=400&auto=format&fit=crop&q=80',
     status: 'In Stock',
     createdDate: '2026-08-01'
   },
   {
     productId: 'PRD-000003',
-    barcode: '884100100003',
-    name: 'Bacchus Energy Drink 250ml',
-    khmerName: 'ភេសជ្ជៈប៉ូវកម្លាំង បាខាស់',
-    category: 'Beverages',
-    brand: 'Dong-A',
-    unit: 'Can',
-    costPrice: 0.60,
-    salePrice: 0.85,
-    wholesalePrice: 0.75,
-    vipPrice: 0.80,
-    stock: 80,
-    minStock: 20,
-    supplier: 'Cam-Korean Trading',
-    description: 'Taurine and royal jelly energy beverage',
-    imageUrl: 'https://images.unsplash.com/photo-1622543925917-763c34d1a86e?w=300&auto=format&fit=crop&q=80',
+    barcode: '885001001003',
+    name: 'Kitaco Heavy-Duty Crash Bar & Engine Guard',
+    khmerName: 'កាងការពារជុំវិញ និងបន្ទះការពារម៉ាស៊ីន Kitaco (Yamaha PG-1)',
+    category: 'កាង & ការពារ (Crash Bar)',
+    brand: 'Kitaco Japan',
+    motorcycleModel: 'PG-1',
+    unit: 'Set',
+    costPrice: 65.00,
+    salePrice: 98.00,
+    wholesalePrice: 82.00,
+    vipPrice: 90.00,
+    stock: 15,
+    minStock: 4,
+    supplier: 'Adventure Moto Supply',
+    description: 'កាងដែកថែបក្រាស់ ការពារម៉ូតូពេលដួល ម៉ូតស្អាតស័ក្តិសមជាមួយ Yamaha PG-1',
+    imageUrl: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=400&auto=format&fit=crop&q=80',
     status: 'In Stock',
     createdDate: '2026-08-02'
   },
   {
     productId: 'PRD-000004',
-    barcode: '884100100004',
-    name: 'Phka Rumduol Jasmine Rice 5kg',
-    khmerName: 'អង្ករផ្ការំដួលលេខ១ ៥គីឡូ',
-    category: 'Snacks & Food',
-    brand: 'Amru Rice',
-    unit: 'Bag',
-    costPrice: 4.80,
-    salePrice: 6.50,
-    wholesalePrice: 5.80,
-    vipPrice: 6.00,
-    stock: 45,
-    minStock: 10,
-    supplier: 'Amru Rice Cambodia',
-    description: 'World award-winning fragrant Cambodian jasmine rice',
-    imageUrl: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=300&auto=format&fit=crop&q=80',
+    barcode: '885001001004',
+    name: 'Akrapovic Slip-On Titanium Exhaust Full System',
+    khmerName: 'បំពង់ស៊ីមាំង Akrapovic Titanium Full System (ADV / PCX)',
+    category: 'បំពង់ផ្សែង & ស៊ីមាំង',
+    brand: 'Akrapovic',
+    motorcycleModel: 'ADV 160',
+    unit: 'Set',
+    costPrice: 220.00,
+    salePrice: 320.00,
+    wholesalePrice: 275.00,
+    vipPrice: 295.00,
+    stock: 6,
+    minStock: 2,
+    supplier: 'Racing Exhaust World',
+    description: 'បំពង់ផ្សែង Titanium សំឡេងពិរោះ ស្រទន់ ជួយឱ្យម៉ាស៊ីនស្ទុះខ្លាំង បង្កើនកម្លាំងសេះ',
+    imageUrl: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=400&auto=format&fit=crop&q=80',
     status: 'In Stock',
     createdDate: '2026-08-02'
   },
   {
     productId: 'PRD-000005',
-    barcode: '884100100005',
-    name: 'Mama Instant Noodles Tom Yum 1 Pack',
-    khmerName: 'មីម៉ាម៉ា រសជាតិតុងយាំ',
-    category: 'Snacks & Food',
-    brand: 'MAMA',
-    unit: 'Pack',
-    costPrice: 0.25,
-    salePrice: 0.45,
-    wholesalePrice: 0.35,
-    vipPrice: 0.40,
-    stock: 180,
-    minStock: 30,
-    supplier: 'Thai-Cam Import',
-    description: 'Spicy shrimp tom yum flavor instant noodles',
-    imageUrl: 'https://images.unsplash.com/photo-1612927601601-6638404737ce?w=300&auto=format&fit=crop&q=80',
+    barcode: '885001001005',
+    name: 'Michelin City Extra Dual Tire Set (110/80-14 & 130/70-13)',
+    khmerName: 'សំបកកង់ Michelin City Extra (PCX 160 / ADV 160)',
+    category: 'សំបកកង់ & យ៉ាន់',
+    brand: 'Michelin',
+    motorcycleModel: 'PCX 160',
+    unit: 'Pair',
+    costPrice: 72.00,
+    salePrice: 105.00,
+    wholesalePrice: 90.00,
+    vipPrice: 98.00,
+    stock: 24,
+    minStock: 6,
+    supplier: 'Michelin Cambodia Tire Distributor',
+    description: 'សំបកកង់ស្វិត ស្អិតជាប់ផ្លូវល្អ មិនរអិលពេលភ្លៀង ប្រើប្រាស់បានយូរអង្វែង',
+    imageUrl: 'https://images.unsplash.com/photo-1578844251758-2f71da64c96f?w=400&auto=format&fit=crop&q=80',
     status: 'In Stock',
     createdDate: '2026-08-03'
   },
   {
     productId: 'PRD-000006',
-    barcode: '884100100006',
-    name: 'Type-C Fast Charging Cable 1.5m 65W',
-    khmerName: 'ខ្សែសាកល្បឿនលឿន Type-C 65W',
-    category: 'Electronics',
-    brand: 'Baseus',
-    unit: 'Piece',
-    costPrice: 2.20,
-    salePrice: 4.50,
-    wholesalePrice: 3.50,
-    vipPrice: 4.00,
-    stock: 28,
-    minStock: 5,
-    supplier: 'Smart Tech Distribution',
-    description: 'Braided nylon heavy duty PD fast charging cable',
-    imageUrl: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=300&auto=format&fit=crop&q=80',
+    barcode: '885001001006',
+    name: 'Motowolf Vibration Dampener Phone Mount with Fast Qi Charge',
+    khmerName: 'ជើងចាប់ទូរស័ព្ទ Motowolf កាត់រំញ័រ + សាកថ្មឥតខ្សែ (Wireless)',
+    category: 'គ្រឿងអេឡិចត្រូនិក & ជើងទូរស័ព្ទ',
+    brand: 'Motowolf',
+    motorcycleModel: 'ALL',
+    unit: 'Pcs',
+    costPrice: 18.00,
+    salePrice: 29.00,
+    wholesalePrice: 23.00,
+    vipPrice: 26.00,
+    stock: 45,
+    minStock: 10,
+    supplier: 'Motowolf Official Cambodia',
+    description: 'ជើងចាប់ទូរស័ព្ទអាលុយមីញ៉ូម CNC កាត់រំញ័រការពារកាមេរ៉ាទូរស័ព្ទ មានប្រព័ន្ធ Fast Wireless Charge 15W',
+    imageUrl: 'https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=400&auto=format&fit=crop&q=80',
     status: 'In Stock',
-    createdDate: '2026-08-04'
+    createdDate: '2026-08-03'
   },
   {
     productId: 'PRD-000007',
-    barcode: '884100100007',
-    name: 'Wireless Bluetooth Earbuds Pro',
-    khmerName: 'កាសឥតខ្សែប៊្លូធូស Pro',
-    category: 'Electronics',
-    brand: 'Havit',
-    unit: 'Set',
-    costPrice: 8.50,
-    salePrice: 15.00,
-    wholesalePrice: 12.00,
-    vipPrice: 13.50,
-    stock: 8,
-    minStock: 10,
-    supplier: 'Smart Tech Distribution',
-    description: 'ENC noise reduction, 24h battery life with charging case',
-    imageUrl: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=300&auto=format&fit=crop&q=80',
-    status: 'Low Stock',
+    barcode: '885001001007',
+    name: 'Spirit Beast 60W Dual LED Spotlight with Strobe',
+    khmerName: 'ភ្លើងជំនួយ LED Spirit Beast 60W ភ្លើងលឿង/ស (ADV / CT125)',
+    category: 'ភ្លើង & អំពូល LED',
+    brand: 'Spirit Beast',
+    motorcycleModel: 'CT125',
+    unit: 'Pair',
+    costPrice: 28.00,
+    salePrice: 48.00,
+    wholesalePrice: 38.00,
+    vipPrice: 42.00,
+    stock: 20,
+    minStock: 5,
+    supplier: 'Spirit Beast KH',
+    description: 'អំពូលភ្លើង LED ពន្លឺខ្លាំង ចាំងឆ្ងាយ កាត់អ័ព្ទ មានមុខងារភ្លើង Flash Strobe ការពារទឹក 100% IP68',
+    imageUrl: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=400&auto=format&fit=crop&q=80',
+    status: 'In Stock',
     createdDate: '2026-08-04'
   },
   {
     productId: 'PRD-000008',
-    barcode: '884100100008',
-    name: 'Double A Copy Paper A4 80gsm 500 Sheets',
-    khmerName: 'ក្រដាស A4 Double A 80gsm',
-    category: 'Office Supplies',
-    brand: 'Double A',
-    unit: 'Box',
-    costPrice: 3.40,
-    salePrice: 4.80,
-    wholesalePrice: 4.20,
-    vipPrice: 4.50,
-    stock: 50,
-    minStock: 15,
-    supplier: 'Phnom Penh Stationery Co.',
-    description: 'Premium smooth paper for inkjet and laser printing',
-    imageUrl: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=300&auto=format&fit=crop&q=80',
+    barcode: '885001001008',
+    name: 'Moritech CNC Brake Levers & Mirror Block (Red Edition)',
+    khmerName: 'ដៃហ្វ្រាំង CNC Moritech កាច់បត់បាន (Honda Scoopy / Click)',
+    category: 'គ្រឿងតុបតែង CNC & Carbon',
+    brand: 'Moritech',
+    motorcycleModel: 'SCOOPY',
+    unit: 'Pair',
+    costPrice: 19.50,
+    salePrice: 35.00,
+    wholesalePrice: 26.00,
+    vipPrice: 30.00,
+    stock: 28,
+    minStock: 6,
+    supplier: 'CNC Racing Parts Thailand',
+    description: 'ដៃហ្វ្រាំងអាលុយមីញ៉ូម CNC កម្រិត Premium កាច់បត់បាន មិនបាក់ពេលដួល ពណ៌ក្រហមឆើត',
+    imageUrl: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=400&auto=format&fit=crop&q=80',
+    status: 'In Stock',
+    createdDate: '2026-08-04'
+  },
+  {
+    productId: 'PRD-000009',
+    barcode: '885001001009',
+    name: 'IRC GP-22 Dual Purpose Off-Road Tire Set',
+    khmerName: 'សំបកកង់បន្លា Off-Road IRC GP-22 (Yamaha PG-1 / Honda CT125)',
+    category: 'សំបកកង់ & យ៉ាន់',
+    brand: 'IRC Tire',
+    motorcycleModel: 'PG-1',
+    unit: 'Pair',
+    costPrice: 55.00,
+    salePrice: 85.00,
+    wholesalePrice: 70.00,
+    vipPrice: 78.00,
+    stock: 14,
+    minStock: 4,
+    supplier: 'Adventure Moto Supply',
+    description: 'សំបកកង់បន្លាស្ទីល Adventure ជិះផ្លូវដី ភក់ និងផ្លូវជាតិបានយ៉ាងស្រួល',
+    imageUrl: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=400&auto=format&fit=crop&q=80',
     status: 'In Stock',
     createdDate: '2026-08-05'
   },
   {
-    productId: 'PRD-000009',
-    barcode: '884100100009',
-    name: 'Head & Shoulders Shampoo 330ml',
-    khmerName: 'សាប៊ូកក់សក់ Head & Shoulders 330ml',
-    category: 'Personal Care',
-    brand: 'P&G',
-    unit: 'Bottle',
-    costPrice: 2.80,
-    salePrice: 4.20,
-    wholesalePrice: 3.60,
-    vipPrice: 3.90,
-    stock: 0,
-    minStock: 8,
-    supplier: 'DKSH Cambodia',
-    description: 'Cool menthol anti-dandruff daily shampoo',
-    imageUrl: 'https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=300&auto=format&fit=crop&q=80',
-    status: 'Out of Stock',
+    productId: 'PRD-000010',
+    barcode: '885001001010',
+    name: 'RCB Racing Boy Alloy Forged Wheels (12-inch Red/Gold)',
+    khmerName: 'រង្វង់យ៉ាន់ RCB Racing Boy 12-inch (Honda Scoopy / Giorno+)',
+    category: 'សំបកកង់ & យ៉ាន់',
+    brand: 'RCB (Racing Boy)',
+    motorcycleModel: 'SCOOPY',
+    unit: 'Pair',
+    costPrice: 110.00,
+    salePrice: 165.00,
+    wholesalePrice: 138.00,
+    vipPrice: 150.00,
+    stock: 8,
+    minStock: 2,
+    supplier: 'RCB Racing Boy Cambodia',
+    description: 'យ៉ាន់ Forged អាលុយមីញ៉ូមទម្ងន់ស្រាល រឹងមាំ ពណ៌ក្រហម/មាស បង្កើនសម្រស់ម៉ូតូ Scoopy & Giorno',
+    imageUrl: 'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=400&auto=format&fit=crop&q=80',
+    status: 'In Stock',
     createdDate: '2026-08-05'
+  },
+  {
+    productId: 'PRD-000011',
+    barcode: '885001001011',
+    name: 'Honda CT125 Center Luggage Rack & Front Basket Set',
+    khmerName: 'កញ្ច្រែងមុខ និងកែបកណ្តាលដាក់ឥវ៉ាន់ (Honda CT125 Trail Hunter)',
+    category: 'កាង & ការពារ (Crash Bar)',
+    brand: 'Kitaco Japan',
+    motorcycleModel: 'CT125',
+    unit: 'Set',
+    costPrice: 42.00,
+    salePrice: 68.00,
+    wholesalePrice: 54.00,
+    vipPrice: 60.00,
+    stock: 16,
+    minStock: 3,
+    supplier: 'Adventure Moto Supply',
+    description: 'កញ្ច្រែងដែកថែបខ្មៅស្អាត ងាយស្រួលផ្ទុកឥវ៉ាន់ពេលដើរលេង Camping / Touring',
+    imageUrl: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=400&auto=format&fit=crop&q=80',
+    status: 'In Stock',
+    createdDate: '2026-08-05'
+  },
+  {
+    productId: 'PRD-000012',
+    barcode: '885001001012',
+    name: 'Motul 300V Factory Line Road Racing 10W-40 1L',
+    khmerName: 'ប្រេងម៉ាស៊ីន Motul 300V 10W-40 1L (100% Synthetic Ester Core)',
+    category: 'ប្រេង & ទឹកស្អំ',
+    brand: 'Motul',
+    motorcycleModel: 'ALL',
+    unit: 'Btl',
+    costPrice: 16.50,
+    salePrice: 23.00,
+    wholesalePrice: 19.50,
+    vipPrice: 21.00,
+    stock: 40,
+    minStock: 12,
+    supplier: 'Motul Cambodia Official',
+    description: 'ប្រេងម៉ាស៊ីនកម្រិតប្រណាំង ជួយការពារម៉ាស៊ីនកម្តៅខ្លាំង ស្ទុះរលូន និងសន្សំសំចៃសាំង',
+    imageUrl: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=400&auto=format&fit=crop&q=80',
+    status: 'In Stock',
+    createdDate: '2026-08-06'
   }
 ];
 
 export const INITIAL_CATEGORIES: Category[] = [
-  { id: 'CAT-01', name: 'Beverages', khmerName: 'ភេសជ្ជៈ', icon: 'Coffee', itemCount: 3 },
-  { id: 'CAT-02', name: 'Snacks & Food', khmerName: 'ចំណីអាហារ & អាហារសម្រន់', icon: 'Utensils', itemCount: 2 },
-  { id: 'CAT-03', name: 'Electronics', khmerName: 'ឧបករណ៍អេឡិចត្រូនិច', icon: 'Smartphone', itemCount: 2 },
-  { id: 'CAT-04', name: 'Personal Care', khmerName: 'គ្រឿងថែរក្សាសម្រស់', icon: 'Sparkles', itemCount: 1 },
-  { id: 'CAT-05', name: 'Office Supplies', khmerName: 'សម្ភារៈការិយាល័យ', icon: 'FileText', itemCount: 1 }
+  { id: 'CAT-01', name: 'បូម & ជើងក្រោម', khmerName: 'បូម & ជើងក្រោម (Suspension)', icon: 'Sliders', itemCount: 1 },
+  { id: 'CAT-02', name: 'ប្រព័ន្ធហ្វ្រាំង & ឌីស', khmerName: 'ប្រព័ន្ធហ្វ្រាំង & ឌីស (Brakes)', icon: 'Disc', itemCount: 1 },
+  { id: 'CAT-03', name: 'កាង & ការពារ (Crash Bar)', khmerName: 'កាង & ការពារ (Crash Bars)', icon: 'Shield', itemCount: 2 },
+  { id: 'CAT-04', name: 'បំពង់ផ្សែង & ស៊ីមាំង', khmerName: 'បំពង់ផ្សែង & ស៊ីមាំង (Exhausts)', icon: 'Flame', itemCount: 1 },
+  { id: 'CAT-05', name: 'សំបកកង់ & យ៉ាន់', khmerName: 'សំបកកង់ & យ៉ាន់ (Tires & Rims)', icon: 'Circle', itemCount: 3 },
+  { id: 'CAT-06', name: 'គ្រឿងអេឡិចត្រូនិក & ជើងទូរស័ព្ទ', khmerName: 'ជើងទូរស័ព្ទ & អេឡិចត្រូនិក (Mounts)', icon: 'Smartphone', itemCount: 1 },
+  { id: 'CAT-07', name: 'ភ្លើង & អំពូល LED', khmerName: 'ភ្លើង & អំពូល LED (Lights)', icon: 'Zap', itemCount: 1 },
+  { id: 'CAT-08', name: 'គ្រឿងតុបតែង CNC & Carbon', khmerName: 'គ្រឿងតុបតែង CNC & Carbon', icon: 'Sparkles', itemCount: 1 },
+  { id: 'CAT-09', name: 'ប្រេង & ទឹកស្អំ', khmerName: 'ប្រេងម៉ាស៊ីន & ទឹកស្អំ (Oils)', icon: 'Droplets', itemCount: 1 }
 ];
 
 export const INITIAL_BRANDS: Brand[] = [
-  { id: 'BRD-01', name: 'Angkor Beer', description: 'Cambrew Brewery' },
-  { id: 'BRD-02', name: 'Kulen Water', description: 'Natural mineral water' },
-  { id: 'BRD-03', name: 'Amru Rice', description: 'Export grade organic rice' },
-  { id: 'BRD-04', name: 'Baseus', description: 'Digital electronics accessories' },
-  { id: 'BRD-05', name: 'Double A', description: 'Office Paper' }
+  { id: 'BRD-01', name: 'YSS Suspension', description: 'World-class racing shock absorbers' },
+  { id: 'BRD-02', name: 'Brembo', description: 'High performance braking systems Italy' },
+  { id: 'BRD-03', name: 'Akrapovic', description: 'Premium titanium exhausts' },
+  { id: 'BRD-04', name: 'Kitaco Japan', description: 'Adventure parts for PG-1 & CT125' },
+  { id: 'BRD-05', name: 'Michelin', description: 'Premium motorcycle tires' },
+  { id: 'BRD-06', name: 'Motowolf', description: 'Motorcycle mounts & touring gear' },
+  { id: 'BRD-07', name: 'Spirit Beast', description: 'LED spotlights and auxiliary lights' },
+  { id: 'BRD-08', name: 'RCB (Racing Boy)', description: 'Performance rims, levers & brakes' },
+  { id: 'BRD-09', name: 'Motul', description: '100% Synthetic motorcycle oils' }
 ];
 
 export const INITIAL_UNITS: Unit[] = [
-  { id: 'UNT-01', name: 'Piece', khmerName: 'ដុំ/គ្រាប់', shortCode: 'Pcs' },
-  { id: 'UNT-02', name: 'Can', khmerName: 'កំប៉ុង', shortCode: 'Can' },
-  { id: 'UNT-03', name: 'Bottle', khmerName: 'ដប', shortCode: 'Btl' },
-  { id: 'UNT-04', name: 'Box', khmerName: 'កេស/ប្រអប់', shortCode: 'Box' },
-  { id: 'UNT-05', name: 'Pack', khmerName: 'កញ្ចប់', shortCode: 'Pack' },
-  { id: 'UNT-06', name: 'Kg', khmerName: 'គីឡូក្រាម', shortCode: 'Kg' },
-  { id: 'UNT-07', name: 'Set', khmerName: 'ឈុត', shortCode: 'Set' }
+  { id: 'UNT-01', name: 'Pcs', khmerName: 'គ្រាប់ / ដុំ', shortCode: 'Pcs' },
+  { id: 'UNT-02', name: 'Set', khmerName: 'ឈុត', shortCode: 'Set' },
+  { id: 'UNT-03', name: 'Pair', khmerName: 'គូ (ឆ្វេង+ស្តាំ)', shortCode: 'Pair' },
+  { id: 'UNT-04', name: 'Btl', khmerName: 'ដប', shortCode: 'Btl' },
+  { id: 'UNT-05', name: 'Box', khmerName: 'ប្រអប់', shortCode: 'Box' }
 ];
 
 export const INITIAL_CUSTOMERS: Customer[] = [
   {
     customerId: 'CUS-000001',
-    name: 'General Walk-in Customer',
+    name: 'General Moto Rider (អតិថិជនទូទៅ)',
     phone: '012 000 000',
     address: 'Phnom Penh',
     customerGroup: 'General',
     discountRate: 0,
     creditLimit: 0,
     balance: 0,
-    totalPurchased: 450.00,
+    totalPurchased: 580.00,
     status: 'Active',
     createdDate: '2026-08-01'
   },
   {
     customerId: 'CUS-000002',
-    name: 'Sokha Ly (VIP Member)',
-    phone: '012 345 678',
-    email: 'sokha.ly@gmail.com',
-    address: 'Toul Kork, Phnom Penh',
+    name: 'Khem Chantha (Honda ADV Club)',
+    phone: '098 765 432',
+    address: 'St 271, Toul Kork, Phnom Penh',
     customerGroup: 'VIP',
     discountRate: 5,
-    creditLimit: 500,
-    balance: 45.00,
+    creditLimit: 500.00,
+    balance: 0,
     totalPurchased: 1250.00,
     status: 'Active',
-    createdDate: '2026-08-02'
+    createdDate: '2026-08-01'
   },
   {
     customerId: 'CUS-000003',
-    name: 'Bopha Coffee & Mart (Wholesale)',
-    phone: '098 765 432',
-    email: 'bopha.mart@yahoo.com',
-    address: 'Chamkarmon, Phnom Penh',
+    name: 'Sokha Adventure Garage (PCX / PG-1 Wholesale)',
+    phone: '089 123 456',
+    address: 'National Road 6, Siem Reap',
     customerGroup: 'Wholesale',
     discountRate: 10,
-    creditLimit: 2000,
-    balance: 150.00,
-    totalPurchased: 3400.00,
+    creditLimit: 2000.00,
+    balance: 320.00,
+    totalPurchased: 3450.00,
     status: 'Active',
-    createdDate: '2026-08-03'
+    createdDate: '2026-08-02'
   }
 ];
 
 export const INITIAL_SUPPLIERS: Supplier[] = [
   {
     supplierId: 'SUP-000001',
-    name: 'Cambrew Ltd',
-    contactPerson: 'Mr. David Heng',
-    phone: '023 880 123',
-    email: 'orders@cambrew.com.kh',
-    address: 'Sihanoukville & Phnom Penh Depot',
-    balance: 240.00,
+    name: 'YSS Cambodia Racing Parts',
+    contactPerson: 'Mr. David YSS',
+    phone: '012 999 111',
+    email: 'sales@ysscambodia.com',
+    address: 'Russian Blvd, Phnom Penh',
+    balance: 0,
     status: 'Active',
     createdDate: '2026-08-01'
   },
   {
     supplierId: 'SUP-000002',
-    name: 'Kulen Water Co.',
-    contactPerson: 'Ms. Chantrea',
-    phone: '012 999 888',
-    email: 'sales@kulenwater.com',
-    address: 'Siem Reap & Phnom Penh',
-    balance: 0.00,
+    name: 'Adventure Moto Supply (PG-1 & CT125)',
+    contactPerson: 'Lok Pich',
+    phone: '016 777 888',
+    email: 'pich@adventuremoto.kh',
+    address: 'Street 2004, Sen Sok, Phnom Penh',
+    balance: 450.00,
     status: 'Active',
     createdDate: '2026-08-01'
   },
   {
     supplierId: 'SUP-000003',
-    name: 'Smart Tech Distribution',
-    contactPerson: 'Vireak Chea',
+    name: 'Brembo Performance KH & Motul Distributor',
+    contactPerson: 'Oun Vireak',
     phone: '017 555 444',
-    email: 'vireak@smarttech.kh',
+    email: 'vireak@brembokh.com',
     address: 'St 214, Daun Penh, Phnom Penh',
-    balance: 480.00,
+    balance: 280.00,
     status: 'Active',
     createdDate: '2026-08-02'
   }
 ];
 
 export const INITIAL_EXPENSE_CATEGORIES: ExpenseCategory[] = [
-  { id: 'EXPCAT-01', name: 'Rent', khmerName: 'ថ្លៃឈ្នួលទីតាំង', icon: 'Building' },
-  { id: 'EXPCAT-02', name: 'Electricity', khmerName: 'ថ្លៃអគ្គិសនី (EDC)', icon: 'Zap' },
+  { id: 'EXPCAT-01', name: 'Rent', khmerName: 'ថ្លៃឈ្នួលទីតាំងហាង', icon: 'Building' },
+  { id: 'EXPCAT-02', name: 'Electricity', khmerName: 'ថ្លៃអគ្គិសនី & ភ្លើងបំភ្លឺ', icon: 'Zap' },
   { id: 'EXPCAT-03', name: 'Water', khmerName: 'ថ្លៃទឹកស្អាត', icon: 'Droplets' },
-  { id: 'EXPCAT-04', name: 'Internet', khmerName: 'ថ្លៃអ៊ីនធឺណិត', icon: 'Wifi' },
-  { id: 'EXPCAT-05', name: 'Salary', khmerName: 'ប្រាក់បៀវត្សបុគ្គលិក', icon: 'Users' },
-  { id: 'EXPCAT-06', name: 'Transportation', khmerName: 'ថ្លៃដឹកជញ្ជូន', icon: 'Truck' },
-  { id: 'EXPCAT-07', name: 'Maintenance', khmerName: 'ថ្លៃជួសជុលថែទាំ', icon: 'Wrench' },
+  { id: 'EXPCAT-04', name: 'Internet', khmerName: 'ថ្លៃអ៊ីនធឺណិត Wi-Fi', icon: 'Wifi' },
+  { id: 'EXPCAT-05', name: 'Salary', khmerName: 'ប្រាក់បៀវត្សជាង & បុគ្គលិក', icon: 'Users' },
+  { id: 'EXPCAT-06', name: 'Transportation', khmerName: 'ថ្លៃដឹកជញ្ជូន & កង់បី', icon: 'Truck' },
+  { id: 'EXPCAT-07', name: 'Tools & Maintenance', khmerName: 'ថ្លៃប្រដាប់ប្រដាជាង & ជួសជុល', icon: 'Wrench' },
   { id: 'EXPCAT-08', name: 'Other', khmerName: 'ចំណាយផ្សេងៗ', icon: 'MoreHorizontal' }
 ];
 
 export const INITIAL_SETTINGS: AppSettings = {
-  storeName: 'Khmer Smart Mart & POS',
-  storeNameKhmer: 'ខ្មែរ ស្មាតម៉ាត & ប្រព័ន្ធគ្រប់គ្រងការលក់',
-  address: '#128, St 271, Sangkat Boeung Tumpun, Khan Meanchey, Phnom Penh',
-  phone: '012 888 999 / 097 555 666',
-  email: 'info@khmersmartmart.com',
+  storeName: 'BERRY MOTO ACCESSORIES',
+  storeNameKhmer: 'ប៊ែរី គ្រឿងលេងម៉ូតូ (ADV • PCX • SCOOPY • PG-1 • CT125)',
+  logoUrl: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=200&auto=format&fit=crop&q=80',
+  address: '#88A, St 271 (ជិតផ្សារដើមថ្កូវ), Khan Chamkarmon, Phnom Penh',
+  phone: '012 888 999 / 098 777 666',
+  email: 'berrymoto.kh@gmail.com',
   vatNumber: 'K001-902345678',
   currency: 'USD',
   exchangeRate: 4100, // 1 USD = 4,100 KHR
   taxRate: 0,
-  receiptFooter: 'Thank you for shopping with us! Please come again.',
-  receiptFooterKhmer: 'សូមអរគុណចំពោះការគាំទ្រ! សូមអញ្ជើញមកម្តងទៀត។',
+  receiptFooter: 'Thank you for choosing Berry Moto Accessories! Drive Safe!',
+  receiptFooterKhmer: 'សូមអរគុណចំពោះការគាំទ្រ ប៊ែរី គ្រឿងលេងម៉ូតូ! សូមបើកបរដោយសុវត្ថិភាព!',
   googleAppsScriptUrl: '',
   isGasConnected: false,
   thermalWidth: '80mm'
@@ -358,351 +435,420 @@ export const INITIAL_USERS: User[] = [
   {
     userId: 'USR-000001',
     username: 'admin',
-    fullName: 'Super Administrator',
+    fullName: 'Berry Moto Admin',
     phone: '012 888 999',
-    email: 'admin@khmerpos.com',
+    email: 'admin@berrymoto.com',
     role: 'Super Admin',
-    branch: 'Main Branch (Phnom Penh)',
+    branch: 'Main Store Phnom Penh',
     status: 'Active',
     createdDate: '2026-08-01'
   },
   {
     userId: 'USR-000002',
-    username: 'manager',
-    fullName: 'Sok Vichea (Store Manager)',
-    phone: '012 444 333',
-    email: 'vichea@khmerpos.com',
-    role: 'Manager',
-    branch: 'Main Branch (Phnom Penh)',
+    username: 'cashier1',
+    fullName: 'Sophea Cashier',
+    phone: '098 777 666',
+    email: 'sophea@berrymoto.com',
+    role: 'Cashier',
+    branch: 'Main Store Phnom Penh',
     status: 'Active',
-    createdDate: '2026-08-02'
+    createdDate: '2026-08-01'
   },
   {
     userId: 'USR-000003',
-    username: 'cashier',
-    fullName: 'Dara Chan (Cashier #1)',
-    phone: '098 111 222',
-    email: 'dara@khmerpos.com',
-    role: 'Cashier',
-    branch: 'Main Branch (Phnom Penh)',
+    username: 'stockkeeper',
+    fullName: 'Dara Moto Mechanic & Stock',
+    phone: '089 555 444',
+    email: 'dara@berrymoto.com',
+    role: 'Staff',
+    branch: 'Main Store Phnom Penh',
     status: 'Active',
-    createdDate: '2026-08-03'
-  }
-];
-
-export const INITIAL_SALES: Sale[] = [
-  {
-    saleId: 'SAL-20260818-0001',
-    invoiceNumber: 'INV-20260818-0001',
-    date: '2026-08-18 10:24',
-    customerId: 'CUS-000001',
-    customerName: 'General Walk-in Customer',
-    customerGroup: 'General',
-    cashierName: 'Dara Chan',
-    items: [
-      {
-        productId: 'PRD-000001',
-        productName: 'Angkor Premium Beer 330ml Can',
-        barcode: '884100100001',
-        unit: 'Can',
-        quantity: 4,
-        unitPrice: 0.75,
-        costPrice: 0.55,
-        discount: 0,
-        total: 3.00,
-        profit: 0.80
-      },
-      {
-        productId: 'PRD-000005',
-        productName: 'Mama Instant Noodles Tom Yum 1 Pack',
-        barcode: '884100100005',
-        unit: 'Pack',
-        quantity: 2,
-        unitPrice: 0.45,
-        costPrice: 0.25,
-        discount: 0,
-        total: 0.90,
-        profit: 0.40
-      }
-    ],
-    subtotal: 3.90,
-    discount: 0,
-    tax: 0,
-    total: 3.90,
-    totalKHR: 15990,
-    paidUSD: 5.00,
-    paidKHR: 0,
-    changeUSD: 1.10,
-    changeKHR: 4510,
-    dueAmount: 0,
-    profit: 1.20,
-    paymentMethod: 'Cash',
-    status: 'Completed',
-    notes: 'POS Sale Walk-in',
-    exchangeRateUsed: 4100
-  },
-  {
-    saleId: 'SAL-20260818-0002',
-    invoiceNumber: 'INV-20260818-0002',
-    date: '2026-08-18 14:15',
-    customerId: 'CUS-000002',
-    customerName: 'Sokha Ly (VIP Member)',
-    customerGroup: 'VIP',
-    cashierName: 'Dara Chan',
-    items: [
-      {
-        productId: 'PRD-000006',
-        productName: 'Type-C Fast Charging Cable 1.5m 65W',
-        barcode: '884100100006',
-        unit: 'Piece',
-        quantity: 1,
-        unitPrice: 4.50,
-        costPrice: 2.20,
-        discount: 0.22,
-        total: 4.28,
-        profit: 2.08
-      }
-    ],
-    subtotal: 4.50,
-    discount: 0.22,
-    tax: 0,
-    total: 4.28,
-    totalKHR: 17548,
-    paidUSD: 0,
-    paidKHR: 18000,
-    changeUSD: 0.11,
-    changeKHR: 452,
-    dueAmount: 0,
-    profit: 2.08,
-    paymentMethod: 'ABA',
-    status: 'Completed',
-    notes: 'ABA KHQR scan payment',
-    exchangeRateUsed: 4100
+    createdDate: '2026-08-02'
   }
 ];
 
 export const INITIAL_PURCHASES: Purchase[] = [
   {
-    purchaseId: 'PUR-20260815-0001',
-    date: '2026-08-15',
+    purchaseId: 'PUR-20260801-001',
+    date: '2026-08-01 10:30:00',
     supplierId: 'SUP-000001',
-    supplierName: 'Cambrew Ltd',
-    invoiceNumber: 'CAM-99201',
+    supplierName: 'YSS Cambodia Racing Parts',
+    invoiceNumber: 'INV-YSS-8991',
     items: [
       {
         productId: 'PRD-000001',
-        productName: 'Angkor Premium Beer 330ml Can',
-        barcode: '884100100001',
-        unit: 'Can',
-        quantity: 100,
-        costPrice: 0.55,
+        productName: 'YSS G-Sport Rear Shock 365mm',
+        barcode: '885001001001',
+        unit: 'Set',
+        quantity: 10,
+        costPrice: 185.00,
         discount: 0,
         tax: 0,
-        total: 55.00
+        total: 1850.00
       }
     ],
-    subtotal: 55.00,
+    subtotal: 1850.00,
     discount: 0,
     tax: 0,
-    total: 55.00,
-    paidAmount: 55.00,
+    total: 1850.00,
+    paidAmount: 1850.00,
     dueAmount: 0,
     paymentMethod: 'ABA',
     status: 'Received',
-    note: 'Initial restock',
-    createdUser: 'Super Administrator'
+    note: 'Initial stock of YSS Shocks for ADV 160',
+    createdUser: 'Berry Moto Admin'
+  }
+];
+
+export const INITIAL_SALES: Sale[] = [
+  {
+    saleId: 'SAL-20260802-001',
+    invoiceNumber: 'INV-260802-0001',
+    date: '2026-08-02 14:15:20',
+    customerId: 'CUS-000002',
+    customerName: 'Khem Chantha (Honda ADV Club)',
+    customerGroup: 'VIP',
+    cashierName: 'Berry Moto Admin',
+    items: [
+      {
+        productId: 'PRD-000001',
+        productName: 'YSS G-Sport Rear Shock 365mm',
+        barcode: '885001001001',
+        unit: 'Set',
+        quantity: 1,
+        unitPrice: 245.00,
+        costPrice: 185.00,
+        discount: 12.25, // 5% VIP discount
+        total: 232.75,
+        profit: 47.75
+      },
+      {
+        productId: 'PRD-000006',
+        productName: 'Motowolf Vibration Dampener Phone Mount',
+        barcode: '885001001006',
+        unit: 'Pcs',
+        quantity: 1,
+        unitPrice: 29.00,
+        costPrice: 18.00,
+        discount: 1.45,
+        total: 27.55,
+        profit: 9.55
+      }
+    ],
+    subtotal: 274.00,
+    discount: 13.70,
+    tax: 0,
+    total: 260.30,
+    totalKHR: 1067230,
+    paidUSD: 300.00,
+    paidKHR: 0,
+    changeUSD: 39.70,
+    changeKHR: 162770,
+    dueAmount: 0,
+    profit: 57.30,
+    paymentMethod: 'ABA',
+    status: 'Completed',
+    notes: 'Free installation for ADV 160 phone mount & shock tuning',
+    exchangeRateUsed: 4100
   }
 ];
 
 export const INITIAL_EXPENSES: Expense[] = [
   {
-    expenseId: 'EXP-20260810-0001',
-    date: '2026-08-10',
-    category: 'Electricity',
-    description: 'Electricité du Cambodge (EDC) Bill July',
-    amountUSD: 85.50,
-    amountKHR: 350550,
+    expenseId: 'EXP-20260802-001',
+    date: '2026-08-02 17:00:00',
+    category: 'Rent',
+    description: 'ថ្លៃជួលទីតាំងហាងខែសីហា',
+    amountUSD: 450.00,
+    amountKHR: 1845000,
     paymentMethod: 'ABA',
-    user: 'Super Administrator',
-    note: 'Monthly power bill'
+    user: 'Berry Moto Admin',
+    note: 'Payment to Landlord via ABA'
   },
   {
-    expenseId: 'EXP-20260812-0002',
-    date: '2026-08-12',
-    category: 'Internet',
-    description: 'OpenNet Fiber optic 50Mbps subscription',
-    amountUSD: 25.00,
-    amountKHR: 102500,
+    expenseId: 'EXP-20260803-001',
+    date: '2026-08-03 09:30:00',
+    category: 'Electricity',
+    description: 'ថ្លៃអគ្គិសនី EDC ប្រចាំខែ',
+    amountUSD: 85.00,
+    amountKHR: 348500,
     paymentMethod: 'Cash',
-    user: 'Super Administrator',
-    note: 'Monthly shop internet'
+    user: 'Sophea Cashier',
+    note: 'Paid at EDC outlet'
+  }
+];
+
+export const INITIAL_STOCK_ADJUSTMENTS: StockAdjustment[] = [
+  {
+    adjustmentId: 'ADJ-20260803-001',
+    date: '2026-08-03 16:20:00',
+    productId: 'PRD-000008',
+    productName: 'Moritech CNC Brake Levers',
+    barcode: '885001001008',
+    currentStock: 30,
+    adjustmentQty: -2,
+    newStock: 28,
+    adjustmentType: 'Damage',
+    reason: 'កោសរលាត់ពេលដឹកជញ្ជូន ដាក់តាំងបង្ហាញ',
+    user: 'Dara Moto Mechanic & Stock'
   }
 ];
 
 export const INITIAL_STOCK_MOVEMENTS: StockMovement[] = [
   {
-    movementId: 'MOV-000001',
-    date: '2026-08-15 09:00',
+    movementId: 'MOV-20260801-001',
+    date: '2026-08-01 10:30:00',
     productId: 'PRD-000001',
-    productName: 'Angkor Premium Beer 330ml Can',
+    productName: 'YSS G-Sport Rear Shock 365mm',
     type: 'PURCHASE',
-    referenceId: 'PUR-20260815-0001',
-    quantityChange: 100,
-    previousStock: 24,
-    newStock: 124,
-    user: 'Super Administrator',
-    notes: 'Goods received from Cambrew Ltd'
+    referenceId: 'PUR-20260801-001',
+    quantityChange: 10,
+    previousStock: 2,
+    newStock: 12,
+    user: 'Berry Moto Admin',
+    notes: 'Stock received from YSS Cambodia'
   },
   {
-    movementId: 'MOV-000002',
-    date: '2026-08-18 10:24',
+    movementId: 'MOV-20260802-001',
+    date: '2026-08-02 14:15:20',
     productId: 'PRD-000001',
-    productName: 'Angkor Premium Beer 330ml Can',
+    productName: 'YSS G-Sport Rear Shock 365mm',
     type: 'SALE',
-    referenceId: 'SAL-20260818-0001',
-    quantityChange: -4,
-    previousStock: 124,
-    newStock: 120,
-    user: 'Dara Chan',
-    notes: 'POS Sale to Walk-in Customer'
+    referenceId: 'SAL-20260802-001',
+    quantityChange: -1,
+    previousStock: 12,
+    newStock: 11,
+    user: 'Berry Moto Admin',
+    notes: 'Sold to Khem Chantha'
   }
 ];
 
 export const INITIAL_AUDIT_LOGS: AuditLog[] = [
   {
-    id: 'LOG-000001',
-    timestamp: '2026-08-18 08:30:00',
-    user: 'admin',
+    id: 'LOG-001',
+    timestamp: '2026-08-01 08:00:00',
+    user: 'Berry Moto Admin',
     action: 'SYSTEM_BOOT',
     module: 'System',
-    recordId: 'SYS',
-    details: 'Database initialized with 25 Google Sheets schema & local caching engine.'
+    recordId: 'SYS-01',
+    details: 'Berry Moto Accessories POS initialized with Google Sheets Database'
   }
 ];
 
-// Helper to generate custom consecutive IDs
-export function generateCustomId(prefix: string, listLength: number): string {
-  const nextNum = listLength + 1;
-  const padded = String(nextNum).padStart(6, '0');
-  return `${prefix}-${padded}`;
-}
-
-export function generateDateBasedId(prefix: string, countToday: number): string {
-  const now = new Date();
-  const yyyy = now.getFullYear();
-  const mm = String(now.getMonth() + 1).padStart(2, '0');
-  const dd = String(now.getDate()).padStart(2, '0');
-  const padded = String(countToday + 1).padStart(4, '0');
-  return `${prefix}-${yyyy}${mm}${dd}-${padded}`;
-}
-
-// Local Storage & Dual-Sync Database Service
 export class DatabaseService {
-  private static getItem<T>(key: string, defaultVal: T): T {
+  // Helper to load or initialize from localStorage
+  private static load<T>(key: string, defaultValue: T): T {
     try {
-      const data = localStorage.getItem(key);
-      return data ? JSON.parse(data) : defaultVal;
-    } catch {
-      return defaultVal;
-    }
-  }
-
-  private static setItem<T>(key: string, val: T): void {
-    try {
-      localStorage.setItem(key, JSON.stringify(val));
+      const stored = localStorage.getItem(key);
+      if (!stored) {
+        localStorage.setItem(key, JSON.stringify(defaultValue));
+        return defaultValue;
+      }
+      return JSON.parse(stored) as T;
     } catch (e) {
-      console.warn('LocalStorage error:', e);
+      console.error(`Error loading key ${key}:`, e);
+      return defaultValue;
     }
   }
 
-  // Load All State
-  static loadAllState() {
+  private static save<T>(key: string, data: T): void {
+    try {
+      localStorage.setItem(key, JSON.stringify(data));
+    } catch (e) {
+      console.error(`Error saving key ${key}:`, e);
+    }
+  }
+
+  // Loaders
+  public static getProducts(): Product[] {
+    return this.load<Product[]>(STORAGE_KEYS.PRODUCTS, INITIAL_PRODUCTS);
+  }
+  public static saveProducts(products: Product[]): void {
+    this.save(STORAGE_KEYS.PRODUCTS, products);
+  }
+
+  public static getCategories(): Category[] {
+    return this.load<Category[]>(STORAGE_KEYS.CATEGORIES, INITIAL_CATEGORIES);
+  }
+  public static saveCategories(categories: Category[]): void {
+    this.save(STORAGE_KEYS.CATEGORIES, categories);
+  }
+
+  public static getBrands(): Brand[] {
+    return this.load<Brand[]>(STORAGE_KEYS.BRANDS, INITIAL_BRANDS);
+  }
+  public static saveBrands(brands: Brand[]): void {
+    this.save(STORAGE_KEYS.BRANDS, brands);
+  }
+
+  public static getUnits(): Unit[] {
+    return this.load<Unit[]>(STORAGE_KEYS.UNITS, INITIAL_UNITS);
+  }
+  public static saveUnits(units: Unit[]): void {
+    this.save(STORAGE_KEYS.UNITS, units);
+  }
+
+  public static getCustomers(): Customer[] {
+    return this.load<Customer[]>(STORAGE_KEYS.CUSTOMERS, INITIAL_CUSTOMERS);
+  }
+  public static saveCustomers(customers: Customer[]): void {
+    this.save(STORAGE_KEYS.CUSTOMERS, customers);
+  }
+
+  public static getSuppliers(): Supplier[] {
+    return this.load<Supplier[]>(STORAGE_KEYS.SUPPLIERS, INITIAL_SUPPLIERS);
+  }
+  public static saveSuppliers(suppliers: Supplier[]): void {
+    this.save(STORAGE_KEYS.SUPPLIERS, suppliers);
+  }
+
+  public static getPurchases(): Purchase[] {
+    return this.load<Purchase[]>(STORAGE_KEYS.PURCHASES, INITIAL_PURCHASES);
+  }
+  public static savePurchases(purchases: Purchase[]): void {
+    this.save(STORAGE_KEYS.PURCHASES, purchases);
+  }
+
+  public static getSales(): Sale[] {
+    return this.load<Sale[]>(STORAGE_KEYS.SALES, INITIAL_SALES);
+  }
+  public static saveSales(sales: Sale[]): void {
+    this.save(STORAGE_KEYS.SALES, sales);
+  }
+
+  public static getExpenses(): Expense[] {
+    return this.load<Expense[]>(STORAGE_KEYS.EXPENSES, INITIAL_EXPENSES);
+  }
+  public static saveExpenses(expenses: Expense[]): void {
+    this.save(STORAGE_KEYS.EXPENSES, expenses);
+  }
+
+  public static getExpenseCategories(): ExpenseCategory[] {
+    return this.load<ExpenseCategory[]>(STORAGE_KEYS.EXPENSE_CATEGORIES, INITIAL_EXPENSE_CATEGORIES);
+  }
+  public static saveExpenseCategories(cats: ExpenseCategory[]): void {
+    this.save(STORAGE_KEYS.EXPENSE_CATEGORIES, cats);
+  }
+
+  public static getStockAdjustments(): StockAdjustment[] {
+    return this.load<StockAdjustment[]>(STORAGE_KEYS.STOCK_ADJUSTMENTS, INITIAL_STOCK_ADJUSTMENTS);
+  }
+  public static saveStockAdjustments(adjs: StockAdjustment[]): void {
+    this.save(STORAGE_KEYS.STOCK_ADJUSTMENTS, adjs);
+  }
+
+  public static getStockMovements(): StockMovement[] {
+    return this.load<StockMovement[]>(STORAGE_KEYS.STOCK_MOVEMENTS, INITIAL_STOCK_MOVEMENTS);
+  }
+  public static saveStockMovements(movements: StockMovement[]): void {
+    this.save(STORAGE_KEYS.STOCK_MOVEMENTS, movements);
+  }
+
+  public static getUsers(): User[] {
+    return this.load<User[]>(STORAGE_KEYS.USERS, INITIAL_USERS);
+  }
+  public static saveUsers(users: User[]): void {
+    this.save(STORAGE_KEYS.USERS, users);
+  }
+
+  public static getSettings(): AppSettings {
+    return this.load<AppSettings>(STORAGE_KEYS.SETTINGS, INITIAL_SETTINGS);
+  }
+  public static saveSettings(settings: AppSettings): void {
+    this.save(STORAGE_KEYS.SETTINGS, settings);
+  }
+
+  public static getAuditLogs(): AuditLog[] {
+    return this.load<AuditLog[]>(STORAGE_KEYS.AUDIT_LOGS, INITIAL_AUDIT_LOGS);
+  }
+  public static saveAuditLogs(logs: AuditLog[]): void {
+    this.save(STORAGE_KEYS.AUDIT_LOGS, logs);
+  }
+
+  public static getCurrentUser(): User | null {
+    const user = localStorage.getItem(STORAGE_KEYS.CURRENT_USER);
+    if (!user) return INITIAL_USERS[0];
+    try {
+      return JSON.parse(user);
+    } catch {
+      return INITIAL_USERS[0];
+    }
+  }
+  public static saveCurrentUser(user: User | null): void {
+    if (user) {
+      this.save(STORAGE_KEYS.CURRENT_USER, user);
+    } else {
+      localStorage.removeItem(STORAGE_KEYS.CURRENT_USER);
+    }
+  }
+
+  public static loadAllState() {
     return {
-      products: this.getItem<Product[]>(STORAGE_KEYS.PRODUCTS, INITIAL_PRODUCTS),
-      categories: this.getItem<Category[]>(STORAGE_KEYS.CATEGORIES, INITIAL_CATEGORIES),
-      brands: this.getItem<Brand[]>(STORAGE_KEYS.BRANDS, INITIAL_BRANDS),
-      units: this.getItem<Unit[]>(STORAGE_KEYS.UNITS, INITIAL_UNITS),
-      customers: this.getItem<Customer[]>(STORAGE_KEYS.CUSTOMERS, INITIAL_CUSTOMERS),
-      suppliers: this.getItem<Supplier[]>(STORAGE_KEYS.SUPPLIERS, INITIAL_SUPPLIERS),
-      purchases: this.getItem<Purchase[]>(STORAGE_KEYS.PURCHASES, INITIAL_PURCHASES),
-      sales: this.getItem<Sale[]>(STORAGE_KEYS.SALES, INITIAL_SALES),
-      expenses: this.getItem<Expense[]>(STORAGE_KEYS.EXPENSES, INITIAL_EXPENSES),
-      expenseCategories: this.getItem<ExpenseCategory[]>(STORAGE_KEYS.EXPENSE_CATEGORIES, INITIAL_EXPENSE_CATEGORIES),
-      stockAdjustments: this.getItem<StockAdjustment[]>(STORAGE_KEYS.STOCK_ADJUSTMENTS, []),
-      stockMovements: this.getItem<StockMovement[]>(STORAGE_KEYS.STOCK_MOVEMENTS, INITIAL_STOCK_MOVEMENTS),
-      users: this.getItem<User[]>(STORAGE_KEYS.USERS, INITIAL_USERS),
-      settings: this.getItem<AppSettings>(STORAGE_KEYS.SETTINGS, INITIAL_SETTINGS),
-      auditLogs: this.getItem<AuditLog[]>(STORAGE_KEYS.AUDIT_LOGS, INITIAL_AUDIT_LOGS),
-      currentUser: this.getItem<User | null>(STORAGE_KEYS.CURRENT_USER, INITIAL_USERS[0])
+      products: this.getProducts(),
+      categories: this.getCategories(),
+      brands: this.getBrands(),
+      units: this.getUnits(),
+      customers: this.getCustomers(),
+      suppliers: this.getSuppliers(),
+      purchases: this.getPurchases(),
+      sales: this.getSales(),
+      expenses: this.getExpenses(),
+      expenseCategories: this.getExpenseCategories(),
+      stockAdjustments: this.getStockAdjustments(),
+      stockMovements: this.getStockMovements(),
+      users: this.getUsers(),
+      settings: this.getSettings(),
+      auditLogs: this.getAuditLogs(),
+      currentUser: this.getCurrentUser(),
     };
   }
 
-  static saveProducts(data: Product[]) { this.setItem(STORAGE_KEYS.PRODUCTS, data); }
-  static saveSales(data: Sale[]) { this.setItem(STORAGE_KEYS.SALES, data); }
-  static savePurchases(data: Purchase[]) { this.setItem(STORAGE_KEYS.PURCHASES, data); }
-  static saveExpenses(data: Expense[]) { this.setItem(STORAGE_KEYS.EXPENSES, data); }
-  static saveCustomers(data: Customer[]) { this.setItem(STORAGE_KEYS.CUSTOMERS, data); }
-  static saveSuppliers(data: Supplier[]) { this.setItem(STORAGE_KEYS.SUPPLIERS, data); }
-  static saveStockMovements(data: StockMovement[]) { this.setItem(STORAGE_KEYS.STOCK_MOVEMENTS, data); }
-  static saveStockAdjustments(data: StockAdjustment[]) { this.setItem(STORAGE_KEYS.STOCK_ADJUSTMENTS, data); }
-  static saveCategories(data: Category[]) { this.setItem(STORAGE_KEYS.CATEGORIES, data); }
-  static saveBrands(data: Brand[]) { this.setItem(STORAGE_KEYS.BRANDS, data); }
-  static saveUnits(data: Unit[]) { this.setItem(STORAGE_KEYS.UNITS, data); }
-  static saveUsers(data: User[]) { this.setItem(STORAGE_KEYS.USERS, data); }
-  static saveSettings(data: AppSettings) { this.setItem(STORAGE_KEYS.SETTINGS, data); }
-  static saveAuditLogs(data: AuditLog[]) { this.setItem(STORAGE_KEYS.AUDIT_LOGS, data); }
-  static saveCurrentUser(data: User | null) { this.setItem(STORAGE_KEYS.CURRENT_USER, data); }
-
-  // Sync / Call Google Apps Script Web App API
-  static async callGasApi(url: string, action: string, payload: any = {}): Promise<ApiResponse> {
-    if (!url || !url.startsWith('http')) {
-      return { success: false, message: 'Google Apps Script URL មិនទាន់ត្រូវបានកំណត់', data: null };
-    }
-
+  public static async callGasApi(url: string, action: string, data: Record<string, unknown> = {}): Promise<any> {
     try {
-      // Use fetch to POST or GET to Google Apps Script Web App
-      const isGet = action.startsWith('get') || action === 'ping' || action === 'checkHealth';
-      let endpoint = url;
-      let options: RequestInit = {};
-
-      if (isGet) {
-        endpoint += (endpoint.includes('?') ? '&' : '?') + `action=${encodeURIComponent(action)}`;
-        options = { method: 'GET', mode: 'cors' };
-      } else {
-        options = {
-          method: 'POST',
-          mode: 'no-cors', // standard for Google Apps Script redirects in browser
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ action, payload })
-        };
-      }
-
-      const res = await fetch(endpoint, options);
-      if (options.mode === 'no-cors') {
-        return { success: true, message: 'Data synced with Google Apps Script Web App', data: payload };
-      }
-      const data = await res.json();
-      return data;
-    } catch (err: any) {
-      console.warn('Google Apps Script call error (fallback local active):', err);
-      return { success: false, message: 'Google Apps Script sync timeout: ' + (err.message || 'Network error'), data: null };
+      const payload = { action, ...data };
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload),
+      });
+      return await response.json();
+    } catch (error) {
+      console.error('GAS API Error:', error);
+      throw error;
     }
   }
 
-  // Currency helpers
-  static formatUSD(amount: number): string {
-    return '$' + (amount || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  // Currency Converter Helpers
+  public static convertUSDToKHR(amountUSD: number, rate: number = 4100): number {
+    return Math.round(amountUSD * rate);
   }
 
-  static formatKHR(amount: number): string {
-    return (Math.round(amount || 0)).toLocaleString('en-US') + ' ៛';
+  public static convertKHRToUSD(amountKHR: number, rate: number = 4100): number {
+    return parseFloat((amountKHR / rate).toFixed(2));
   }
 
-  static convertUSDToKHR(usdAmount: number, rate: number = 4100): number {
-    return Math.round((usdAmount || 0) * (rate || 4100));
+  public static formatUSD(amount: number): string {
+    return `$${amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
   }
 
-  static convertKHRToUSD(khrAmount: number, rate: number = 4100): number {
-    return (khrAmount || 0) / (rate || 4100);
+  public static formatKHR(amount: number): string {
+    return `${Math.round(amount).toLocaleString('en-US')} ៛`;
   }
 }
+
+// Global ID Generators
+export const generateCustomId = (prefix: string, sequenceNumber?: number): string => {
+  const seq = sequenceNumber !== undefined ? (sequenceNumber + 1) : Math.floor(1 + Math.random() * 9999);
+  return `${prefix}-${seq.toString().padStart(6, '0')}`;
+};
+
+export const generateDateBasedId = (prefix: string, sequenceNumber?: number): string => {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const day = date.getDate().toString().padStart(2, '0');
+  const suffix = sequenceNumber !== undefined 
+    ? (sequenceNumber + 1).toString().padStart(4, '0') 
+    : Math.floor(1000 + Math.random() * 9000).toString();
+  return `${prefix}-${year}${month}${day}-${suffix}`;
+};

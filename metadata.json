@@ -1,6 +1,6 @@
 {
   "name": "Khmer POS & ERP Admin Dashboard",
-  "description": "Comprehensive Admin Dashboard, Inventory, Sales, Purchases, Customers, Expenses, Reports, and POS System with Google Sheets Database integration and dual currency (USD/KHR).",
+  "description": "Berry Moto Accessories POS & Inventory System with motorcycle parts customization (ADV, PCX, Scoopy, PG-1, CT125), Red/Black sport theme, image/logo upload, and Google Sheets Database sync.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

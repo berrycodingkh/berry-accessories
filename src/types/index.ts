@@ -37,6 +37,7 @@ export interface Product {
   khmerName?: string;
   category: string;
   brand: string;
+  motorcycleModel?: string; // e.g. ADV 160, PCX 160, SCOOPY, PG-1, CT125, ALL
   unit: string;
   costPrice: number; // in USD
   salePrice: number; // in USD
@@ -234,6 +235,7 @@ export interface Branch {
 export interface AppSettings {
   storeName: string;
   storeNameKhmer: string;
+  logoUrl?: string;
   address: string;
   phone: string;
   email: string;
