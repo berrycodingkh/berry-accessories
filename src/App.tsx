@@ -21,7 +21,7 @@ import { UsersView } from './components/UsersView';
 import { LoginScreen } from './components/LoginScreen';
 
 const MainLayout: React.FC = () => {
-  const { currentView, currentUser } = useApp();
+  const { currentView, currentUser, theme } = useApp();
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   // If user is not authenticated, show dedicated Admin / Cashier Login Screen
@@ -35,7 +35,9 @@ const MainLayout: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col font-sans">
+    <div className={`min-h-screen flex flex-col font-sans transition-colors duration-200 ${
+      theme === 'dark' ? 'bg-zinc-950 text-zinc-100' : 'bg-slate-100 text-slate-800'
+    }`}>
       <ToastContainer />
       <Header onToggleSidebar={() => setSidebarOpen(prev => !prev)} />
 
@@ -44,7 +46,9 @@ const MainLayout: React.FC = () => {
         <Sidebar isOpen={sidebarOpen} onCloseMobile={() => setSidebarOpen(false)} />
 
         {/* Dynamic Main Workspace View */}
-        <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 bg-zinc-900/60">
+        <main className={`flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 transition-colors duration-200 ${
+          theme === 'dark' ? 'bg-zinc-900/60 text-zinc-100' : 'bg-slate-50 text-slate-800'
+        }`}>
           {currentView === 'dashboard' && <DashboardView />}
           {currentView === 'pos' && <POSView />}
           {currentView === 'products' && <ProductsView />}

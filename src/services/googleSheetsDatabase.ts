@@ -188,7 +188,12 @@ export const INITIAL_USERS: User[] = [
     role: 'Super Admin',
     branch: 'Main Store Phnom Penh',
     status: 'Active',
-    createdDate: '2026-08-01'
+    createdDate: '2026-08-01',
+    shift: 'Full Day',
+    maxDiscountPercent: 100,
+    canViewCostPrice: true,
+    canGiveDiscount: true,
+    canVoidInvoice: true
   },
   {
     userId: 'USR-000002',
@@ -199,7 +204,12 @@ export const INITIAL_USERS: User[] = [
     role: 'Cashier',
     branch: 'Main Store Phnom Penh',
     status: 'Active',
-    createdDate: '2026-08-01'
+    createdDate: '2026-08-01',
+    shift: 'Morning',
+    maxDiscountPercent: 10,
+    canViewCostPrice: false,
+    canGiveDiscount: true,
+    canVoidInvoice: false
   },
   {
     userId: 'USR-000003',
@@ -210,7 +220,12 @@ export const INITIAL_USERS: User[] = [
     role: 'Staff',
     branch: 'Main Store Phnom Penh',
     status: 'Active',
-    createdDate: '2026-08-02'
+    createdDate: '2026-08-02',
+    shift: 'Full Day',
+    maxDiscountPercent: 5,
+    canViewCostPrice: true,
+    canGiveDiscount: false,
+    canVoidInvoice: false
   }
 ];
 

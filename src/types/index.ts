@@ -3,6 +3,7 @@ export type UserRole = 'Super Admin' | 'Admin' | 'Manager' | 'Cashier' | 'Staff'
 export interface User {
   userId: string;
   username: string;
+  password?: string;
   fullName: string;
   phone: string;
   email: string;
@@ -10,6 +11,11 @@ export interface User {
   branch: string;
   status: 'Active' | 'Inactive';
   createdDate: string;
+  shift?: 'Morning' | 'Afternoon' | 'Night' | 'Full Day';
+  maxDiscountPercent?: number; // Maximum discount a cashier can apply (e.g., 5%, 10%)
+  canViewCostPrice?: boolean; // Cashier cannot view product cost prices by default
+  canGiveDiscount?: boolean;
+  canVoidInvoice?: boolean;
 }
 
 export interface Permission {
@@ -248,6 +254,7 @@ export interface AppSettings {
   googleAppsScriptUrl: string;
   isGasConnected: boolean;
   thermalWidth: '58mm' | '80mm';
+  theme?: 'light' | 'dark';
 }
 
 export interface AuditLog {

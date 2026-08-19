@@ -157,6 +157,15 @@ interface AppContextType {
   isSyncing: boolean;
   selectedInvoiceForPrint: Sale | null;
   setSelectedInvoiceForPrint: (sale: Sale | null) => void;
+
+  // Theme support
+  theme: 'light' | 'dark';
+  setTheme: (t: 'light' | 'dark') => void;
+  toggleTheme: () => void;
+
+  // Role permissions
+  isCashier: boolean;
+  isAdmin: boolean;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -164,8 +173,59 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const initialState = DatabaseService.loadAllState();
 
-  const [currentView, setCurrentView] = useState<AppView>('dashboard');
+  const [currentViewState, setCurrentViewState] = useState<AppView>('dashboard');
   const [currentUser, setCurrentUser] = useState<User | null>(initialState.currentUser);
+
+  // Theme support (light vs dark mode)
+  const [theme, setThemeState] = useState<'light' | 'dark'>(() => {
+    const saved = localStorage.getItem('berry_moto_theme');
+    if (saved === 'light' || saved === 'dark') {
+      return saved;
+    }
+    return initialState.settings.theme || 'dark';
+  });
+
+  const setTheme = (t: 'light' | 'dark') => {
+    setThemeState(t);
+    localStorage.setItem('berry_moto_theme', t);
+    setSettings(prev => ({ ...prev, theme: t }));
+    if (t === 'dark') {
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('light');
+    }
+  };
+
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('light');
+    }
+  }, [theme]);
+
+  // Role Checks
+  const isCashier = currentUser?.role === 'Cashier';
+  const isAdmin = currentUser?.role === 'Super Admin' || currentUser?.role === 'Admin' || currentUser?.role === 'Manager';
+
+  const currentView = currentViewState;
+  const setCurrentView = (view: AppView) => {
+    // If cashier tries to access restricted admin views
+    if (currentUser?.role === 'Cashier' && ['settings', 'reports', 'purchases', 'suppliers', 'expenses', 'adjustments', 'users'].includes(view)) {
+      addToast('គណនី Cashier គ្មានសិទ្ធិចូលប្រើប្រាស់ទំព័រនេះទេ! (Admin Access Required)', 'warning');
+      setCurrentViewState('pos');
+      return;
+    }
+    setCurrentViewState(view);
+  };
   
   const [products, setProducts] = useState<Product[]>(initialState.products);
   const [categories, setCategories] = useState<Category[]>(initialState.categories);
@@ -1158,7 +1218,12 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         syncWithGoogleSheets,
         isSyncing,
         selectedInvoiceForPrint,
-        setSelectedInvoiceForPrint
+        setSelectedInvoiceForPrint,
+        theme,
+        setTheme,
+        toggleTheme,
+        isCashier,
+        isAdmin
       }}
     >
       {children}
