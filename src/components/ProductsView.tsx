@@ -22,7 +22,9 @@ import {
   Sparkles,
   Flame,
   Image as ImageIcon,
-  Check
+  Check,
+  Tag,
+  Bookmark
 } from 'lucide-react';
 import * as XLSX from 'xlsx';
 
@@ -266,6 +268,15 @@ export const ProductsView: React.FC = () => {
         </div>
 
         <div className="flex flex-wrap items-center gap-2.5">
+          <button
+            id="btn-nav-categories-brands"
+            onClick={() => setCurrentView('categories')}
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-xs font-bold text-red-400 hover:text-red-300 transition cursor-pointer"
+          >
+            <Tag className="w-4 h-4 text-red-500" />
+            <span>គ្រប់គ្រង Categories & Brands</span>
+          </button>
+
           <button
             id="btn-export-excel"
             onClick={handleExportExcel}

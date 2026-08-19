@@ -37,6 +37,9 @@ import {
 export type AppView =
   | 'dashboard'
   | 'products'
+  | 'categories'
+  | 'brands'
+  | 'units'
   | 'purchases'
   | 'barcode'
   | 'adjustments'
@@ -102,6 +105,15 @@ interface AppContextType {
   addProduct: (product: Omit<Product, 'productId' | 'createdDate'>) => void;
   updateProduct: (product: Product) => void;
   deleteProduct: (productId: string) => void;
+  createCategory: (category: Omit<Category, 'id'>) => void;
+  updateCategory: (category: Category) => void;
+  deleteCategory: (categoryId: string) => void;
+  createBrand: (brand: Omit<Brand, 'id'>) => void;
+  updateBrand: (brand: Brand) => void;
+  deleteBrand: (brandId: string) => void;
+  createUnit: (unit: Omit<Unit, 'id'>) => void;
+  updateUnit: (unit: Unit) => void;
+  deleteUnit: (unitId: string) => void;
   adjustStock: (adjustment: Omit<StockAdjustment, 'adjustmentId' | 'date'>) => void;
   createPurchase: (purchase: Omit<Purchase, 'purchaseId' | 'date'>) => void;
   createSale: (sale: Omit<Sale, 'saleId' | 'invoiceNumber' | 'date'>) => Sale;
@@ -547,6 +559,99 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     addToast(`បានលុបទំនិញ ${productId} ចេញពីប្រព័ន្ធ`, 'warning');
   };
 
+  // Category Actions
+  const createCategory = (c: Omit<Category, 'id'>) => {
+    const id = generateCustomId('CAT', categories.length);
+    const newCat: Category = {
+      ...c,
+      id,
+      itemCount: 0
+    };
+    setCategories(prev => [...prev, newCat]);
+    logAction('CREATE_CATEGORY', 'Categories', id, `Created category ${c.name}`);
+    addToast(`បានបង្កើតប្រភេទទំនិញ "${c.name}" ដោយជោគជ័យ`, 'success');
+  };
+
+  const updateCategory = (c: Category) => {
+    setCategories(prev => prev.map(cat => cat.id === c.id ? c : cat));
+    logAction('UPDATE_CATEGORY', 'Categories', c.id, `Updated category ${c.name}`);
+    addToast(`បានកែប្រែប្រភេទទំនិញ "${c.name}" រួចរាល់`, 'success');
+  };
+
+  const deleteCategory = (categoryId: string) => {
+    const cat = categories.find(c => c.id === categoryId);
+    // Check if any product is using this category
+    const isUsed = products.some(p => p.category === cat?.name || p.category === cat?.khmerName);
+    if (isUsed) {
+      addToast(`មិនអាចលុបប្រភេទ "${cat?.name}" បានទេ ព្រោះមានទំនិញកំពុងប្រើប្រាស់!`, 'error');
+      return;
+    }
+    setCategories(prev => prev.filter(c => c.id !== categoryId));
+    logAction('DELETE_CATEGORY', 'Categories', categoryId, `Deleted category ${cat?.name || categoryId}`);
+    addToast(`បានលុបប្រភេទទំនិញ "${cat?.name}" រួចរាល់`, 'warning');
+  };
+
+  // Brand Actions
+  const createBrand = (b: Omit<Brand, 'id'>) => {
+    const id = generateCustomId('BRD', brands.length);
+    const newBrand: Brand = {
+      ...b,
+      id
+    };
+    setBrands(prev => [...prev, newBrand]);
+    logAction('CREATE_BRAND', 'Brands', id, `Created brand ${b.name}`);
+    addToast(`បានបង្កើតម៉ាកយីហោ "${b.name}" ដោយជោគជ័យ`, 'success');
+  };
+
+  const updateBrand = (b: Brand) => {
+    setBrands(prev => prev.map(brand => brand.id === b.id ? b : brand));
+    logAction('UPDATE_BRAND', 'Brands', b.id, `Updated brand ${b.name}`);
+    addToast(`បានកែប្រែម៉ាកយីហោ "${b.name}" រួចរាល់`, 'success');
+  };
+
+  const deleteBrand = (brandId: string) => {
+    const brand = brands.find(b => b.id === brandId);
+    // Check if any product is using this brand
+    const isUsed = products.some(p => p.brand === brand?.name);
+    if (isUsed) {
+      addToast(`មិនអាចលុបម៉ាក "${brand?.name}" បានទេ ព្រោះមានទំនិញកំពុងប្រើប្រាស់!`, 'error');
+      return;
+    }
+    setBrands(prev => prev.filter(b => b.id !== brandId));
+    logAction('DELETE_BRAND', 'Brands', brandId, `Deleted brand ${brand?.name || brandId}`);
+    addToast(`បានលុបម៉ាកយីហោ "${brand?.name}" រួចរាល់`, 'warning');
+  };
+
+  // Unit Actions
+  const createUnit = (u: Omit<Unit, 'id'>) => {
+    const id = generateCustomId('UNT', units.length);
+    const newUnit: Unit = {
+      ...u,
+      id
+    };
+    setUnits(prev => [...prev, newUnit]);
+    logAction('CREATE_UNIT', 'Units', id, `Created unit ${u.name}`);
+    addToast(`បានបង្កើតខ្នាតទំនិញ "${u.name}" (${u.khmerName}) ដោយជោគជ័យ`, 'success');
+  };
+
+  const updateUnit = (u: Unit) => {
+    setUnits(prev => prev.map(unit => unit.id === u.id ? u : unit));
+    logAction('UPDATE_UNIT', 'Units', u.id, `Updated unit ${u.name}`);
+    addToast(`បានកែប្រែខ្នាតទំនិញ "${u.name}" រួចរាល់`, 'success');
+  };
+
+  const deleteUnit = (unitId: string) => {
+    const unit = units.find(u => u.id === unitId);
+    const isUsed = products.some(p => p.unit === unit?.name || p.unit === unit?.shortCode);
+    if (isUsed) {
+      addToast(`មិនអាចលុបខ្នាត "${unit?.name}" បានទេ ព្រោះមានទំនិញកំពុងប្រើប្រាស់!`, 'error');
+      return;
+    }
+    setUnits(prev => prev.filter(u => u.id !== unitId));
+    logAction('DELETE_UNIT', 'Units', unitId, `Deleted unit ${unit?.name || unitId}`);
+    addToast(`បានលុបខ្នាតទំនិញ "${unit?.name}" រួចរាល់`, 'warning');
+  };
+
   // Stock Adjustment
   const adjustStock = (adj: Omit<StockAdjustment, 'adjustmentId' | 'date'>) => {
     const adjustmentId = generateCustomId('ADJ', stockAdjustments.length);
@@ -966,6 +1071,15 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         addProduct,
         updateProduct,
         deleteProduct,
+        createCategory,
+        updateCategory,
+        deleteCategory,
+        createBrand,
+        updateBrand,
+        deleteBrand,
+        createUnit,
+        updateUnit,
+        deleteUnit,
         adjustStock,
         createPurchase,
         createSale,

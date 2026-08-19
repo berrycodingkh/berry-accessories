@@ -19,7 +19,10 @@ import {
   DollarSign,
   AlertCircle,
   Flame,
-  Layers
+  Layers,
+  Tag,
+  Bookmark,
+  Scale
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -108,13 +111,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onCloseMobile }) => {
             <span className="text-left flex-1">ផ្ទាំងគ្រប់គ្រង (Dashboard)</span>
           </button>
 
-          {/* 2. Products / Inventory Submenu */}
+          {/* 2. Products & Inventory Submenu */}
           <div>
             <button
               id="nav-menu-products"
               onClick={() => toggleSubmenu('products')}
               className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                ['products', 'purchases', 'barcode', 'adjustments'].includes(currentView)
+                ['products', 'categories', 'brands', 'units', 'purchases', 'barcode', 'adjustments'].includes(currentView)
                   ? 'bg-zinc-900 text-white border border-red-600/30'
                   : 'hover:bg-zinc-900 text-zinc-300 hover:text-white'
               }`}
@@ -143,6 +146,33 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onCloseMobile }) => {
                   }`}
                 >
                   • បញ្ជីគ្រឿងម៉ូតូ (Parts List)
+                </button>
+                <button
+                  id="nav-sub-categories"
+                  onClick={() => handleNav('categories')}
+                  className={`w-full text-left px-3 py-1.5 rounded-md text-xs font-semibold transition-colors cursor-pointer ${
+                    currentView === 'categories' ? 'text-red-400 bg-zinc-900 font-bold' : 'text-zinc-400 hover:text-white'
+                  }`}
+                >
+                  • ប្រភេទទំនិញ (Categories)
+                </button>
+                <button
+                  id="nav-sub-brands"
+                  onClick={() => handleNav('brands')}
+                  className={`w-full text-left px-3 py-1.5 rounded-md text-xs font-semibold transition-colors cursor-pointer ${
+                    currentView === 'brands' ? 'text-red-400 bg-zinc-900 font-bold' : 'text-zinc-400 hover:text-white'
+                  }`}
+                >
+                  • ម៉ាកយីហោ (Brands)
+                </button>
+                <button
+                  id="nav-sub-units"
+                  onClick={() => handleNav('units')}
+                  className={`w-full text-left px-3 py-1.5 rounded-md text-xs font-semibold transition-colors cursor-pointer ${
+                    currentView === 'units' ? 'text-red-400 bg-zinc-900 font-bold' : 'text-zinc-400 hover:text-white'
+                  }`}
+                >
+                  • ខ្នាតទំនិញ (Units)
                 </button>
                 <button
                   id="nav-sub-purchases"

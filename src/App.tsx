@@ -15,6 +15,7 @@ import { SuppliersView } from './components/SuppliersView';
 import { ExpensesView } from './components/ExpensesView';
 import { ReportsView } from './components/ReportsView';
 import { BarcodeGeneratorView } from './components/BarcodeGeneratorView';
+import { CategoriesBrandsView } from './components/CategoriesBrandsView';
 import { SettingsView } from './components/SettingsView';
 import { Lock, User as UserIcon, ShieldCheck, Database, ShoppingBag } from 'lucide-react';
 
@@ -158,6 +159,9 @@ const MainLayout: React.FC = () => {
           {currentView === 'dashboard' && <DashboardView />}
           {currentView === 'pos' && <POSView />}
           {currentView === 'products' && <ProductsView />}
+          {currentView === 'categories' && <CategoriesBrandsView initialTab="categories" />}
+          {currentView === 'brands' && <CategoriesBrandsView initialTab="brands" />}
+          {currentView === 'units' && <CategoriesBrandsView initialTab="units" />}
           {currentView === 'purchases' && <PurchasesView />}
           {currentView === 'adjustments' && <StockAdjustmentsView />}
           {currentView === 'sales' && <SalesView />}
