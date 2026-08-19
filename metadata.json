@@ -1,0 +1,6 @@
+{
+  "name": "Khmer POS & ERP Admin Dashboard",
+  "description": "Comprehensive Admin Dashboard, Inventory, Sales, Purchases, Customers, Expenses, Reports, and POS System with Google Sheets Database integration and dual currency (USD/KHR).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
