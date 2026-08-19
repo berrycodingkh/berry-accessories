@@ -346,7 +346,11 @@ export class DatabaseService {
   }
 
   public static getUsers(): User[] {
-    return this.load<User[]>(STORAGE_KEYS.USERS, INITIAL_USERS);
+    const list = this.load<User[]>(STORAGE_KEYS.USERS, INITIAL_USERS);
+    if (!list || list.length === 0) {
+      return INITIAL_USERS;
+    }
+    return list;
   }
   public static saveUsers(users: User[]): void {
     this.save(STORAGE_KEYS.USERS, users);

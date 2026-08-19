@@ -21,8 +21,8 @@ export const LoginScreen: React.FC = () => {
   const { login, addToast, connectGoogleAccount, isGoogleConnecting, settings } = useApp();
 
   const [selectedRole, setSelectedRole] = useState<UserRole>('Super Admin');
-  const [username, setUsername] = useState('admin');
-  const [password, setPassword] = useState('admin123');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [time, setTime] = useState<string>('');
   const [dateStr, setDateStr] = useState<string>('');
@@ -45,41 +45,26 @@ export const LoginScreen: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleRoleSelect = (role: UserRole) => {
-    setSelectedRole(role);
-    if (role === 'Super Admin' || role === 'Manager') {
-      setUsername('admin');
-      setPassword('admin123');
-    } else {
-      setUsername('cashier1');
-      setPassword('cashier123');
-    }
-  };
-
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     if (!username.trim()) {
-      addToast('សូមបញ្ចូល Username', 'warning');
+      addToast('សូមបញ្ចូលឈ្មោះគណនី (Username)!', 'warning');
       return;
     }
-    const success = login(username, selectedRole);
-    if (!success) {
-      addToast('Username ឬ Password មិនត្រឹមត្រូវ! (Admin: admin / Cashier: cashier1)', 'error');
+    if (!password.trim()) {
+      addToast('សូមបញ្ចូលពាក្យសម្ងាត់ (Password)!', 'warning');
+      return;
     }
-  };
-
-  const handleQuickLogin = (targetRole: UserRole) => {
-    const targetUsername = targetRole === 'Super Admin' ? 'admin' : 'cashier1';
-    const success = login(targetUsername, targetRole);
+    const success = login(username, password, selectedRole);
     if (!success) {
-      addToast('មិនអាចចូលបានទេ', 'error');
+      // Toast is handled in login
     }
   };
 
   const handleGoogleLogin = async () => {
     const success = await connectGoogleAccount();
     if (success) {
-      login('admin', 'Super Admin');
+      login('admin', undefined, 'Super Admin');
     }
   };
 
@@ -150,13 +135,13 @@ export const LoginScreen: React.FC = () => {
           {/* Role Selection Segmented Control */}
           <div className="space-y-1.5">
             <label className="block text-[11px] font-bold text-zinc-400 uppercase tracking-wider">
-              ជ្រើសរើសប្រភេទគណនី (Select Role):
+              ប្រភេទគណនី (Account Type):
             </label>
             <div className="grid grid-cols-2 gap-2 p-1 bg-zinc-950 rounded-xl border border-zinc-800">
               <button
                 type="button"
                 id="login-role-admin"
-                onClick={() => handleRoleSelect('Super Admin')}
+                onClick={() => setSelectedRole('Super Admin')}
                 className={`py-2.5 px-3 rounded-lg font-bold text-xs flex items-center justify-center gap-2 transition cursor-pointer ${
                   selectedRole === 'Super Admin'
                     ? 'bg-red-600 text-white shadow-md shadow-red-600/30 font-black'
@@ -170,7 +155,7 @@ export const LoginScreen: React.FC = () => {
               <button
                 type="button"
                 id="login-role-cashier"
-                onClick={() => handleRoleSelect('Cashier')}
+                onClick={() => setSelectedRole('Cashier')}
                 className={`py-2.5 px-3 rounded-lg font-bold text-xs flex items-center justify-center gap-2 transition cursor-pointer ${
                   selectedRole === 'Cashier'
                     ? 'bg-red-600 text-white shadow-md shadow-red-600/30 font-black'
@@ -195,10 +180,11 @@ export const LoginScreen: React.FC = () => {
                   id="login-input-username"
                   type="text"
                   required
+                  autoComplete="username"
                   value={username}
                   onChange={e => setUsername(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition"
-                  placeholder="admin or cashier1"
+                  className="w-full pl-10 pr-4 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition"
+                  placeholder="បញ្ចូលឈ្មោះគណនី (Username)..."
                 />
               </div>
             </div>
@@ -213,10 +199,11 @@ export const LoginScreen: React.FC = () => {
                   id="login-input-password"
                   type={showPassword ? 'text' : 'password'}
                   required
+                  autoComplete="current-password"
                   value={password}
                   onChange={e => setPassword(e.target.value)}
-                  className="w-full pl-10 pr-10 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition"
-                  placeholder="••••••••"
+                  className="w-full pl-10 pr-10 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition"
+                  placeholder="បញ្ចូលពាក្យសម្ងាត់ (Password)..."
                 />
                 <button
                   type="button"
@@ -229,41 +216,13 @@ export const LoginScreen: React.FC = () => {
               </div>
             </div>
 
-            {/* Quick 1-Click Login Shortcuts */}
-            <div className="p-3 bg-zinc-950/70 border border-zinc-800 rounded-xl space-y-2">
-              <div className="flex items-center justify-between text-[11px] text-zinc-400">
-                <span className="flex items-center gap-1 font-semibold text-zinc-300">
-                  <Sparkles className="w-3.5 h-3.5 text-red-500" />
-                  ចុចចូលរហ័ស (Quick Demo Login):
-                </span>
-              </div>
-              <div className="grid grid-cols-2 gap-2">
-                <button
-                  type="button"
-                  id="btn-quick-login-admin"
-                  onClick={() => handleQuickLogin('Super Admin')}
-                  className="py-1.5 px-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-[11px] text-zinc-200 font-bold transition flex items-center justify-center gap-1 cursor-pointer"
-                >
-                  <span>👑 Login Admin</span>
-                </button>
-                <button
-                  type="button"
-                  id="btn-quick-login-cashier"
-                  onClick={() => handleQuickLogin('Cashier')}
-                  className="py-1.5 px-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-[11px] text-zinc-200 font-bold transition flex items-center justify-center gap-1 cursor-pointer"
-                >
-                  <span>💳 Login Cashier</span>
-                </button>
-              </div>
-            </div>
-
             {/* Submit Button */}
             <button
               id="btn-submit-login"
               type="submit"
-              className="w-full py-3 rounded-xl bg-red-600 hover:bg-red-700 text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-red-600/30 transition transform active:scale-98 flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full py-3 rounded-xl bg-red-600 hover:bg-red-700 text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-red-600/30 transition transform active:scale-98 flex items-center justify-center gap-2 cursor-pointer mt-2"
             >
-              <span>ចូលប្រើប្រព័ន្ធ ({selectedRole === 'Super Admin' ? 'Admin' : 'Cashier'})</span>
+              <span>ចូលប្រើប្រព័ន្ធ (Sign In)</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </form>

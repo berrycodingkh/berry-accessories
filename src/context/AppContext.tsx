@@ -49,6 +49,7 @@ export type AppView =
   | 'people'
   | 'customers'
   | 'suppliers'
+  | 'users'
   | 'reports'
   | 'settings'
   | 'pos';
@@ -71,7 +72,7 @@ interface AppContextType {
   setCurrentView: (view: AppView) => void;
   currentUser: User | null;
   setCurrentUser: (user: User | null) => void;
-  login: (username: string, role?: UserRole) => boolean;
+  login: (username: string, password?: string, role?: UserRole) => boolean;
   logout: () => void;
   
   // Data
@@ -481,15 +482,35 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   };
 
   // Auth actions
-  const login = (username: string, targetRole?: UserRole): boolean => {
-    const foundUser = users.find(u => u.username.toLowerCase() === username.toLowerCase() || (targetRole && u.role === targetRole));
+  const login = (username: string, password?: string, targetRole?: UserRole): boolean => {
+    const trimmed = username.trim().toLowerCase();
+    const foundUser = users.find(u => u.username.toLowerCase() === trimmed);
+    
     if (foundUser) {
+      if (foundUser.status === 'Inactive') {
+        addToast('គណនីនេះត្រូវបានផ្អាកបណ្តោះអាសន្ន (Inactive)។ សូមទាក់ទង Admin!', 'error', 'Account Inactive');
+        return false;
+      }
+
+      if (password !== undefined && password.trim() !== '') {
+        if (foundUser.password && foundUser.password !== password.trim()) {
+          addToast('ពាក្យសម្ងាត់ (Password) មិនត្រឹមត្រូវ!', 'error', 'Incorrect Password');
+          return false;
+        }
+      }
+
       setCurrentUser(foundUser);
-      addToast(`សូមស្វាគមន៍មកកាន់ប្រព័ន្ធ! (Logged in as ${foundUser.fullName})`, 'success');
-      logAction('LOGIN', 'Auth', foundUser.userId, `User ${foundUser.username} logged in`);
+      // Auto direct to POS screen for cashiers, or dashboard for admins
+      if (foundUser.role === 'Cashier') {
+        setCurrentView('pos');
+      } else {
+        setCurrentView('dashboard');
+      }
+      addToast(`សូមស្វាគមន៍មកកាន់ប្រព័ន្ធ! (${foundUser.fullName} • ${foundUser.role})`, 'success');
+      logAction('LOGIN', 'Auth', foundUser.userId, `User ${foundUser.username} (${foundUser.role}) logged in`);
       return true;
     }
-    addToast('Username ឬ Password មិនត្រឹមត្រូវ', 'error', 'Invalid Credentials');
+    addToast('ឈ្មោះគណនី (Username) មិនត្រឹមត្រូវ ឬមិនមានក្នុងប្រព័ន្ធ!', 'error', 'Invalid Credentials');
     return false;
   };
 

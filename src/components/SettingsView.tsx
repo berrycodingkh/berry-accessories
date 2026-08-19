@@ -53,7 +53,8 @@ export const SettingsView: React.FC = () => {
     customers,
     suppliers,
     expenses,
-    stockAdjustments
+    stockAdjustments,
+    setCurrentView
   } = useApp();
 
   const [copiedScript, setCopiedScript] = useState(false);
@@ -639,11 +640,24 @@ export const SettingsView: React.FC = () => {
       {/* TAB 3: Users & RBAC */}
       {activeTab === 'users' && (
         <div className="p-6 rounded-xl bg-white border border-zinc-200 shadow-xs space-y-4">
-          <div className="flex justify-between items-center">
-            <h2 className="text-xs font-bold text-zinc-700 uppercase tracking-wider flex items-center gap-2">
-              <Shield className="w-4 h-4 text-red-600" />
-              អ្នកប្រើប្រាស់ប្រព័ន្ធ & ការកំណត់សិទ្ធិ (Users & RBAC Roles)
-            </h2>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-2 border-b border-zinc-100">
+            <div>
+              <h2 className="text-xs font-bold text-zinc-700 uppercase tracking-wider flex items-center gap-2">
+                <Shield className="w-4 h-4 text-red-600" />
+                អ្នកប្រើប្រាស់ប្រព័ន្ធ & ការកំណត់សិទ្ធិ (Users & RBAC Roles)
+              </h2>
+              <p className="text-[11px] text-zinc-500 mt-0.5">
+                គ្រប់គ្រងគណនី Cashier សម្រាប់លក់ និងកំណត់សិទ្ធិអ្នកប្រើប្រាស់
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setCurrentView('users')}
+              className="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-xs flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <span>+ បង្កើត & គ្រប់គ្រង Cashier ពេញលេញ</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
           </div>
 
           <div className="divide-y divide-zinc-100 border border-zinc-200 rounded-xl overflow-hidden">

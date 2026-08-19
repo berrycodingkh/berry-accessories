@@ -280,20 +280,20 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onCloseMobile }) => {
             <span className="text-left flex-1">ចំណាយហាង (Expenses)</span>
           </button>
 
-          {/* 6. People (Customers / Suppliers) */}
+          {/* 6. People (Customers / Suppliers / Cashiers) */}
           <div>
             <button
               id="nav-menu-people"
               onClick={() => toggleSubmenu('people')}
               className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                ['customers', 'suppliers'].includes(currentView)
+                ['customers', 'suppliers', 'users'].includes(currentView)
                   ? 'bg-zinc-900 text-white border border-red-600/30'
                   : 'hover:bg-zinc-900 text-zinc-300 hover:text-white'
               }`}
             >
               <div className="flex items-center">
                 <Users className="w-4 h-4 mr-3 text-red-500" />
-                <span className="text-left">អតិថិជន & អ្នកផ្គត់ផ្គង់</span>
+                <span className="text-left">អតិថិជន & អ្នកគិតលុយ</span>
               </div>
               {openSubmenus.people ? <ChevronDown className="w-3.5 h-3.5 text-zinc-500" /> : <ChevronRight className="w-3.5 h-3.5 text-zinc-500" />}
             </button>
@@ -317,6 +317,15 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onCloseMobile }) => {
                   }`}
                 >
                   • អ្នកផ្គត់ផ្គង់ (Suppliers)
+                </button>
+                <button
+                  id="nav-sub-users"
+                  onClick={() => handleNav('users')}
+                  className={`w-full text-left px-3 py-1.5 rounded-md text-xs font-semibold transition-colors cursor-pointer ${
+                    currentView === 'users' ? 'text-red-400 bg-zinc-900 font-bold' : 'text-zinc-400 hover:text-white'
+                  }`}
+                >
+                  • អ្នកគិតលុយ & បុគ្គលិក (Cashiers & Staff)
                 </button>
               </div>
             )}

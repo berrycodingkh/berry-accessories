@@ -295,9 +295,51 @@ export const POSView: React.FC = () => {
   });
 
   return (
-    <div id="pos-view" className="h-[calc(100vh-6.5rem)] flex flex-col lg:flex-row gap-5">
-      {/* LEFT SIDE: Product Catalog & Fast Search */}
-      <div className="flex-1 flex flex-col bg-white border border-slate-200 rounded-xl p-5 overflow-hidden shadow-xs">
+    <div id="pos-view" className="flex flex-col gap-4">
+      {/* Top POS Cashier Header Banner */}
+      <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-3 sm:px-4 flex flex-wrap items-center justify-between gap-2 shadow-lg">
+        <div className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center font-black text-xs shrink-0">
+            {currentUser?.fullName.slice(0, 2).toUpperCase() || 'CA'}
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-bold text-white">
+                {currentUser?.fullName || 'Cashier'}
+              </span>
+              <span className="px-2 py-0.2 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800 text-[10px] font-bold">
+                {currentUser?.role || 'Cashier'}
+              </span>
+            </div>
+            <span className="text-[10px] text-zinc-400 font-mono">
+              @{currentUser?.username} • ផ្ទាំងលក់ POS Terminal
+            </span>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2">
+          {currentUser?.role !== 'Cashier' && (
+            <button
+              onClick={() => setCurrentView('users')}
+              className="px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-300 hover:text-white text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
+            >
+              <User className="w-3.5 h-3.5 text-red-500" />
+              <span>+ បង្កើត Cashier</span>
+            </button>
+          )}
+          <button
+            onClick={() => setCurrentView('sales')}
+            className="px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-300 hover:text-white text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
+          >
+            <Receipt className="w-3.5 h-3.5 text-red-500" />
+            <span>ប្រវត្តិលក់</span>
+          </button>
+        </div>
+      </div>
+
+      <div className="h-[calc(100vh-10rem)] min-h-[550px] flex flex-col lg:flex-row gap-5">
+        {/* LEFT SIDE: Product Catalog & Fast Search */}
+        <div className="flex-1 flex flex-col bg-white border border-slate-200 rounded-xl p-5 overflow-hidden shadow-xs">
         {/* Top Controls: Barcode Scanner & Search */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
           {/* Barcode Scanner Input */}
@@ -425,8 +467,9 @@ export const POSView: React.FC = () => {
           })}
         </div>
       </div>
+    </div>
 
-      {/* RIGHT SIDE: Cart, Customer & Payment Drawer */}
+    {/* RIGHT SIDE: Cart, Customer & Payment Drawer */}
       <div className="w-full lg:w-96 flex flex-col bg-white border border-slate-200 rounded-xl p-5 shadow-xs">
         {/* Customer Select Header */}
         <div className="flex items-center justify-between pb-3 border-b border-slate-100">
