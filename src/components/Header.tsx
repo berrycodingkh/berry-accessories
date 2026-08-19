@@ -7,6 +7,7 @@ import {
   LogOut,
   RefreshCw,
   Clock,
+  Calendar,
   ChevronDown,
   Layers,
   ExternalLink,
@@ -41,17 +42,23 @@ export const Header: React.FC<HeaderProps> = ({ onToggleSidebar, onOpenAuthModal
   } = useApp();
 
   const [time, setTime] = useState<string>('');
+  const [dateStr, setDateStr] = useState<string>('');
   const [showRateInput, setShowRateInput] = useState(false);
   const [tempRate, setTempRate] = useState(exchangeRate.toString());
   const [showUserDropdown, setShowUserDropdown] = useState(false);
 
   useEffect(() => {
-    const updateTime = () => {
+    const KHMER_MONTHS = ['មករា', 'កុម្ភៈ', 'មីនា', 'មេសា', 'ឧសភា', 'មិថុនា', 'កក្កដា', 'សីហា', 'កញ្ញា', 'តុលា', 'វិច្ឆិកា', 'ធ្នូ'];
+    const updateDateTime = () => {
       const now = new Date();
-      setTime(now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' }));
+      setTime(now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }));
+      const day = now.getDate();
+      const month = KHMER_MONTHS[now.getMonth()];
+      const year = now.getFullYear();
+      setDateStr(`ថ្ងៃទី ${day} ${month} ${year}`);
     };
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
+    updateDateTime();
+    const interval = setInterval(updateDateTime, 1000);
     return () => clearInterval(interval);
   }, []);
 
@@ -143,10 +150,16 @@ export const Header: React.FC<HeaderProps> = ({ onToggleSidebar, onOpenAuthModal
 
       {/* Right controls */}
       <div className="flex items-center space-x-2 sm:space-x-3">
-        {/* Clock */}
-        <div className="hidden xl:flex items-center gap-1.5 px-3 py-1 rounded-lg bg-zinc-100 text-xs font-mono text-zinc-700">
-          <Clock className="w-3.5 h-3.5 text-zinc-400" />
-          <span>{time}</span>
+        {/* Date and Clock Display */}
+        <div className="hidden lg:flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-zinc-100/90 border border-zinc-200/80 text-xs font-mono text-zinc-700 shadow-2xs">
+          <div className="flex items-center gap-1.5 text-zinc-600 font-sans font-semibold border-r border-zinc-200 pr-2.5">
+            <Calendar className="w-3.5 h-3.5 text-red-600" />
+            <span>{dateStr}</span>
+          </div>
+          <div className="flex items-center gap-1.5 font-bold text-zinc-900 font-mono">
+            <Clock className="w-3.5 h-3.5 text-zinc-500" />
+            <span>{time}</span>
+          </div>
         </div>
 
         {/* Currency Switcher Pill with Red Accent */}

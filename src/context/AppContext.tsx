@@ -130,6 +130,7 @@ interface AppContextType {
   createUser: (user: Omit<User, 'userId' | 'createdDate'>) => void;
   updateUser: (user: User) => void;
   deleteUser: (userId: string) => void;
+  clearAllData: () => void;
   
   // Toasts
   toasts: ToastMessage[];
@@ -1005,6 +1006,27 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     addToast('បានលុបគណនីអ្នកប្រើប្រាស់រួចរាល់', 'warning');
   };
 
+  const clearAllData = () => {
+    DatabaseService.clearAllData();
+    setProducts([]);
+    setPurchases([]);
+    setSales([]);
+    setExpenses([]);
+    setStockAdjustments([]);
+    setStockMovements([]);
+    const freshLog: AuditLog = {
+      id: `LOG-CLEAN-${Date.now()}`,
+      timestamp: new Date().toISOString().replace('T', ' ').substring(0, 19),
+      user: currentUser?.fullName || 'Admin',
+      action: 'DATA_CLEAN',
+      module: 'Database',
+      recordId: 'SYS-CLEAN',
+      details: 'All old inventory, purchases, sales, stock adjustments, and movements cleared successfully'
+    };
+    setAuditLogs([freshLog]);
+    addToast('បានសម្អាតទិន្នន័យចាស់ៗទាំងអស់រួចរាល់! អាចចាប់ផ្តើមបញ្ចូលទិន្នន័យថ្មីដោយផ្ទាល់។', 'success');
+  };
+
   // Sync with Google Apps Script Web App (Alternative)
   const testGoogleSheetsConnection = async (customUrl?: string): Promise<boolean> => {
     const url = customUrl || gasUrl || settings.googleAppsScriptUrl;
@@ -1096,6 +1118,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         createUser,
         updateUser,
         deleteUser,
+        clearAllData,
         toasts,
         addToast,
         removeToast,
